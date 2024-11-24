@@ -18,7 +18,7 @@ export const loginClient = async (req: Request, res: Response) => {
   try {
     const user = await clientService.getUserByEmail(email)
     if( user && user.password === password){
-      res.status(200).json({ message: "login successfull" })
+      res.status(200).json({ message: "login successfull", userId: user.id })
     } else {
       res.status(403).json({ message: "user or password incorrect" })
     }
